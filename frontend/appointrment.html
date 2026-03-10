@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Book Appointment</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<div class="container">
+
+<a class="navbar-brand" href="index.html">Healthcare App</a>
+
+<div>
+
+<a class="btn btn-light me-2" href="index.html">Home</a>
+
+<a class="btn btn-light me-2" href="doctors.html">Doctors</a>
+
+<a class="btn btn-light me-2" href="appointment.html">Appointments</a>
+
+<a class="btn btn-light me-2" href="dashboard.html">Dashboard</a>
+
+<a class="btn btn-light me-2" href="reels.html">Health Reels</a>
+
+<a class="btn btn-light" href="ai.html">AI Assistant</a>
+<a class="btn btn-light me-2" href="login.html">Login</a>
+
+<a class="btn btn-light" href="register.html">Register</a>
+</div>
+
+</div>
+
+</nav>
+<div class="container mt-5">
+
+<h2 class="text-center mb-4">Book Appointment</h2>
+
+<div class="card p-4 shadow">
+
+<input id="user_id" class="form-control mb-3" placeholder="User ID">
+
+<input id="doctor_id" class="form-control mb-3" placeholder="Doctor ID">
+
+<input id="date" type="date" class="form-control mb-3">
+
+<button class="btn btn-success" onclick="bookAppointment()">Book</button>
+
+</div>
+
+</div>
+
+<script>
+
+function bookAppointment(){
+
+let user=document.getElementById("user_id").value
+let doctor=document.getElementById("doctor_id").value
+let date=document.getElementById("date").value
+
+fetch("http://127.0.0.1:5000/book_appointment",{
+
+method:"POST",
+
+headers:{"Content-Type":"application/json"},
+
+body:JSON.stringify({
+
+user_id:user,
+doctor_id:doctor,
+date:date
+
+})
+
+})
+
+.then(res=>res.json())
+
+.then(data=>alert(data.message))
+
+}
+
+</script>
+
+</body>
+</html>

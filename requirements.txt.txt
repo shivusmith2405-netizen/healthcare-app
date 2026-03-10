@@ -1,0 +1,4 @@
+Flask
+flask-core
+flask-mysqldb
+gunicorn

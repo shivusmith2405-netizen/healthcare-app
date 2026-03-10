@@ -228,4 +228,4 @@ def get_reviews(doctor_id):
 
     return jsonify(data)
 if __name__ == "__main__":
-    app.run(debug=True)
+     app.run(host="0.0.0.0",port=8080)

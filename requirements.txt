@@ -1,4 +1,4 @@
-Flask
-flask-core
-flask-mysqldb
+flask
 gunicorn
+mysql-connector-python
+flask-cors
